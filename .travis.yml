@@ -70,7 +70,7 @@ env:
     - PINNEDVERS=  # Location of a pip constraints file.
     # Variables controlling the test run.
     - DELETE_FONT_CACHE=
-    - NO_AT_BRIDGE=1  # Necessary for GTK3 interactive test.
+    - NO_AT_BRIDGE=1  #  Necessary for GTK3 interactive test.
     - OPENBLAS_NUM_THREADS=1
     - PYTHONFAULTHANDLER=1
     - XVFB=""
