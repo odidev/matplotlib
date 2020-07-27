@@ -11,6 +11,7 @@ import urllib.request
 import pytest
 
 import matplotlib as mpl
+import platform
 
 
 # Minimal smoke-testing of the backends for which the dependencies are
@@ -154,6 +155,8 @@ _test_timeout = 10  # Empirically, 1s is not enough on Travis.
 @pytest.mark.parametrize("toolbar", ["toolbar2", "toolmanager"])
 @pytest.mark.flaky(reruns=3)
 def test_interactive_backend(backend, toolbar):
+    if platform.machine() == 'aarch64':
+        pytest.skip("Skipping for aarch64 architecture")
     if backend == "macosx" and toolbar == "toolmanager":
         pytest.skip("toolmanager is not implemented for macosx.")
     proc = subprocess.run(
